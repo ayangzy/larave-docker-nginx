@@ -7,10 +7,10 @@ services:
     build:
       context: .
       target: php
-      # args:
-      #   - APP_ENV=${APP_ENV}
+      args:
+        - APP_ENV=${APP_ENV}
     environment:
-      # - APP_ENV=${APP_ENV}
+      - APP_ENV=${APP_ENV}
       - CONTAINER_ROLE=app
     working_dir: /var/www
     volumes:
