@@ -28,4 +28,6 @@ COPY --from=composer:2.3.5 /usr/bin/composer /usr/bin/composer
 RUN chmod -R 755 /var/www/storage
 RUN chmod -R 755 /var/www/bootstrap
 
+EXPOSE 80
+
 ENTRYPOINT [ "docker/entrypoint.sh" ]
