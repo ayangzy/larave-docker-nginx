@@ -32,7 +32,7 @@ services:
       - 3305:3306
     volumes:
       - db-data:/var/lib/mysql
-    restart: always
+    restart: on-failure
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD="no"
       - MYSQL_DATABASE=${DB_DATABASE}
