@@ -17,6 +17,8 @@ services:
       - ./:/var/www
     ports:
       - 8000:8000
+    env_file:
+      - ./.env
     depends_on:
       - database
     networks:
@@ -26,17 +28,17 @@ services:
   database:
     container_name: database
     image: mysql:8.0
-    # ports:
-    #   - 3305:3306
+    ports:
+      - 3305:3306
     volumes:
       - db-data:/var/lib/mysql
     restart: always
     environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD="yes"
-      # - MYSQL_DATABASE=${DB_DATABASE}
-      # - MYSQL_USER=${DB_USERNAME}
-      # - MYSQL_PASSWORD=${DB_PASSWORD}
-      # - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ALLOW_EMPTY_PASSWORD="no"
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
     healthcheck:
       test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
       timeout: 20s
