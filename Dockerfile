@@ -3,7 +3,7 @@ FROM php:8.0-fpm as php
 
 #For your changes to reflect easily on local, make sure you change the below flags to 0 for production set all to 1
 ENV PHP_OPCACHE_ENABLE=1
-ENV PHP_OPCACHE_ENABLE_CLI=0
+ENV PHP_OPCACHE_ENABLE_CLI=1
 ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS=1
 ENV PHP_OPCACHE_REVALIDATE_FREQ=1
 
