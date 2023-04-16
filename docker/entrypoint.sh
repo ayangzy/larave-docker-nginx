@@ -13,7 +13,7 @@ else
 fi
 
 php artisan config:clear
-#php artisan migrate --force --seed
+php artisan migrate --force --seed
 php artisan clear-compiled
 php artisan auth:clear-resets
 php artisan optimize:clear
