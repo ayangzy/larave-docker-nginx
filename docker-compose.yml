@@ -12,9 +12,6 @@ services:
     environment:
       - APP_ENV=${APP_ENV}
       - CONTAINER_ROLE=app
-      - MYSQL_DATABASE=${DB_DATABASE}
-      - MYSQL_USER=${DB_USERNAME}
-      - MYSQL_PASSWORD=${DB_PASSWORD}
     working_dir: /var/www
     volumes:
       - ./:/var/www
@@ -37,9 +34,11 @@ services:
       - db-data:/var/lib/mysql
     restart: always
     environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD="yes"
-      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
-      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_ALLOW_EMPTY_PASSWORD="no"
+      - MYSQL_DATABASE=webapp
+      - MYSQL_USER=webapp
+      - MYSQL_PASSWORD=webapp
+      - MYSQL_ROOT_PASSWORD=webapp
     healthcheck:
       test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
       timeout: 20s
