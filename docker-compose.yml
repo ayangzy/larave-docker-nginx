@@ -12,6 +12,9 @@ services:
     environment:
       - APP_ENV=${APP_ENV}
       - CONTAINER_ROLE=app
+      - DB_DATABASE=webapp
+      - DB_USERNAME=webapp
+      - DB_PASSWORD=webapp
     working_dir: /var/www
     volumes:
       - ./:/var/www
