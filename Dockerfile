@@ -30,4 +30,5 @@ RUN chmod -R 755 /var/www/bootstrap
 
 EXPOSE 80
 
-ENTRYPOINT [ "docker/entrypoint.sh" ]
+#ENTRYPOINT [ "docker/entrypoint.sh" ]
+CMD bash -C './docker/entrypoint.sh';'bash'
