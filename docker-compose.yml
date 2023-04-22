@@ -20,16 +20,15 @@ services:
     env_file:
       - ./.env
     depends_on:
-      - database
+      - mysql
     networks:
       - laravel
 
   # Database Server
-  database:
-    container_name: database
+  mysql:
     image: mysql:8.0
-    # ports:
-    #   - 3305:3306
+    ports:
+      - 3305:3306
     volumes:
       - db-data:/var/lib/mysql
     restart: always
