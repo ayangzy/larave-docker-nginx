@@ -18,6 +18,8 @@ php artisan clear-compiled
 php artisan auth:clear-resets
 php artisan optimize:clear
 php artisan config:cache
+php artisan view:cache
+php artisan route:cache
 composer dump-autoload
 
 
