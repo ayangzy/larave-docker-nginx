@@ -20,12 +20,12 @@ services:
     env_file:
       - ./.env
     depends_on:
-      - mysql
+      - db
     networks:
       - laravel
 
   # Database Server
-  mysql:
+  db:
     image: mysql:8.0
     ports:
       - 3305:3306
