@@ -18,6 +18,7 @@ WORKDIR /var/www
 
 COPY --chown=www-data:www-data . .
 
+
 COPY ./docker/php/php.ini /usr/local/etc/php/php.ini
 COPY ./docker/php/php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
 COPY ./docker/php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
@@ -25,6 +26,7 @@ COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=composer:2.3.5 /usr/bin/composer /usr/bin/composer
 
+RUN chown -R www-data:www-data /var/www
 RUN chmod -R 755 /var/www/storage
 RUN chmod -R 755 /var/www/bootstrap
 
